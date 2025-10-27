@@ -290,5 +290,10 @@ namespace Lab_rab3_KutlubaevA.D._БПИ_23_02
             MessageBox.Show($"Ошибка! Неверный формат параметра {paramName} ({formula}). Проверьте ввод.", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
             this.Title = "Ответ: Ошибка!";
         }
+
+        private void ThemeToggle_Click(object sender, RoutedEventArgs e)
+        {
+            ((App)Application.Current).ToggleTheme();
+        }
     }
 }
