@@ -4,21 +4,27 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Ответ:" Height="Auto" MinWidth="510" MaxWidth="510"
+        Title="Ответ:" Height="500" MinWidth="510" MaxWidth="510"
         WindowStartupLocation="CenterScreen"
-        SizeToContent="Height">
+        SizeToContent="Manual"
+        ResizeMode="CanResize">
 
     <Window.Background>
         <DynamicResource ResourceKey="WindowBackground"/>
     </Window.Background>
 
-    <DockPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Right" Margin="6">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="6">
             <Button Content="Переключить тему" Click="ThemeToggle_Click" Padding="6,2" Margin="4"/>
         </StackPanel>
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
             <StackPanel Margin="10">
 
                 <RadioButton Style="{DynamicResource FormulaRadioButtonStyle}" IsChecked="True" Name="Radio1" GroupName="formula" Checked="Radio_Checked">
@@ -130,9 +136,10 @@
                         </GroupBox>
                     </StackPanel>
                 </RadioButton>
-
-                <Button Content="Считать" Style="{DynamicResource CalculateButtonStyle}" Click="Calc_Click"/>
             </StackPanel>
         </ScrollViewer>
-    </DockPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="6">
+            <Button Content="Считать" Style="{DynamicResource CalculateButtonStyle}" Click="Calc_Click"/>
+        </StackPanel>
+    </Grid>
 </Window>
